@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DataLayer;
+using DataLayer.Repositories;
 
 namespace WeatherForecastDesktop
 {
@@ -20,9 +22,17 @@ namespace WeatherForecastDesktop
     /// </summary>
     public partial class MainWindow : Window
     {
+        IEntityService<BisCityOW, BisCurrentWeather, BisRootObject> bisWeatherService;
         public MainWindow()
         {
             InitializeComponent();
+            bisWeatherService = new BisWeatherOWService();
+
+        }
+
+        private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }
